@@ -1,0 +1,76 @@
+---
+import Layout from '../layouts/Layout.astro';
+import '@/styles/globals.css'
+import Nav from './components/navigation/Nav';
+import Hero from './components/hero/Hero';
+import WhatIDo from'./components/WhatIDo';
+import Belt from'./components/Belt';
+
+import '@fontsource/inter/300.css';
+import '@fontsource/inter/800.css';
+import '@fontsource/inter/900.css';
+import '@fontsource/poppins';
+import About from './components/About';
+import SmartOffertDark from './components/SmartOffertDark';
+import SmartOffertLight from './components/SmartOffertLight';
+import Contact from './components/Contact';
+
+import macbook from "../images/macbook2.png";
+const textArray = ['Szybko','Tanio','Wygodnie']
+
+---
+<Layout title="Welcome to Astro.">
+	<!-- <Nav client:load/> -->
+<>
+	<Hero client:load/>
+	<div class="bg-black">
+		<WhatIDo/>
+		<About />
+	</div>
+	<Belt textArray={textArray}/>
+	<div class="bg-black text-white">
+<SmartOffertDark
+subHeading="strony internetowe"
+		title="Twoja WWW"
+		text="Lorem ipsum dolor sit amet consectetur. Justo adipiscing accumsan morbi imperdiet. Lectus nibh duis non aliquet quisque vulputate. Pellentesque elit amet sagittis facilisi gravida neque nisl placerat. Sagittis nullam urna morbi eleifend viverra. Massa tellus lectus auctor laoreet eu auctor. Et ac iaculis tristique mattis gravida erat luctus elementum. Volutpat felis ac sit mattis fusce vivamus nulla at orci. Massa id varius morbi enim blandit metus diam malesuada auctor. Risus lorem tdsds"
+		btnText="Sprawdź Ofertę"
+		btnUrl="./pages"
+		btnType="default"
+		gradientColor="green"
+		/>
+	</div>
+	<div class="overflow-hidden">
+		<SmartOffertLight
+		imageLeft={true}
+		subHeading="e-commerce"
+		title="Sklep Internetowy"
+		text="Lorem ipsum dolor sit amet consectetur. Justo adipiscing accumsan morbi imperdiet. Lectus nibh duis non aliquet quisque vulputate. Pellentesque elit amet sagittis facilisi gravida neque nisl placerat. Sagittis nullam urna morbi eleifend viverra. Massa tellus lectus auctor laoreet eu auctor. Et ac iaculis tristique mattis gravida erat luctus elementum. Volutpat felis ac sit mattis fusce vivamus nulla at orci. Massa id varius morbi enim blandit metus diam malesuada auctor. Risus lorem tdsds"
+		btnText="Sprawdź Ofertę"
+		btnUrl="./pages"
+		btnType="secondary"
+		gradientColor="purple"
+		mockupImage={macbook.src}
+		/>
+		<SmartOffertLight
+		imageLeft={false}
+		subHeading="automatyzacje"
+		title="Przyśpiesz procesy"
+		text="Lorem ipsum dolor sit amet consectetur. Justo adipiscing accumsan morbi imperdiet. Lectus nibh duis non aliquet quisque vulputate. Pellentesque elit amet sagittis facilisi gravida neque nisl placerat. Sagittis nullam urna morbi eleifend viverra. Massa tellus lectus auctor laoreet eu auctor. Et ac iaculis tristique mattis gravida erat luctus elementum. Volutpat felis ac sit mattis fusce vivamus nulla at orci. Massa id varius morbi enim blandit metus diam malesuada auctor. Risus lorem tdsds"
+		btnText="Sprawdź Ofertę"
+		btnUrl="./pages"
+		btnType="secondary"
+		gradientColor="radar"
+		mockupImage={macbook.src}
+		/>
+		<Contact
+		contactText= "Rozpocznijmy wspólny projekt"
+		background="white"
+		gradient="blue"
+		/>
+	</div>
+
+</main>
+
+</Layout>
+
+
