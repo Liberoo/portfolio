@@ -9,24 +9,67 @@ import Belt from'./components/Belt';
 import '@fontsource/inter/300.css';
 import '@fontsource/inter/800.css';
 import '@fontsource/inter/900.css';
-import '@fontsource/poppins';
+import '@fontsource/poppins/400.css';
+import '@fontsource/poppins/200.css';
+import '@fontsource/poppins/600.css'
 import About from './components/About';
 import SmartOffertDark from './components/SmartOffertDark';
 import SmartOffertLight from './components/SmartOffertLight';
 import Contact from './components/Contact';
-
 import macbook from "../images/macbook2.png";
 const textArray = ['Szybko','Tanio','Wygodnie']
+import { sanityClient } from 'sanity:client';
+import Splider from './components/Splider';
+import Faq from './components/Faq';
+import ThreePosts from './components/ThreePosts';
+import portfolio from 'schema/portfolio';
+const portfolios = await sanityClient.fetch(`*[_type == "Portfolio"]{
+  portfolioTitle,
+  portfolioDescription,
+  portfolioURL,
+  slug,
+  "image": portfolioFeatureImage,
+
+}`);
+const threes = await sanityClient.fetch(`*[_type == "post"]{
+title,
+"image": mainImage,
+slug
+}`);
+
+const faqItems = [
+  {
+    trigger: "Pytanie 1",
+    content: "Odpowiedź na pytanie 1",
+  },
+  {
+    trigger: "Pytanie 2",
+    content: "Odpowiedź na pytanie 2",
+  },
+  {
+    trigger: "Pytanie 3",
+    content: "Odpowiedź na pytanie 3",
+  },
+  {
+    trigger: "Pytanie 4",
+    content: "Odpowiedź na pytanie 4",
+  },
+  {
+    trigger: "Pytanie 5",
+    content: "Odpowiedź na pytanie 5",
+  },
+];
 
 ---
 <Layout title="Welcome to Astro.">
-	<!-- <Nav client:load/> -->
+	<Nav client:load/>
 <>
 	<Hero client:load/>
 	<div class="bg-black">
 		<WhatIDo/>
 		<About />
 	</div>
+
 	<Belt textArray={textArray}/>
 	<div class="bg-black text-white">
 <SmartOffertDark
@@ -66,9 +109,14 @@ subHeading="strony internetowe"
 		contactText= "Rozpocznijmy wspólny projekt"
 		background="white"
 		gradient="blue"
+		gradientWidth="400"
 		/>
-	</div>
 
+		<Splider client:load portfolios={portfolios}/>
+<Faq items={faqItems} client:load/>
+
+	<ThreePosts client:load threes={threes}  />
+</div>
 </main>
 
 </Layout>

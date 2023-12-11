@@ -168,6 +168,15 @@ h2 {
     rgba(0, 0, 0, 0) 100.73%
   );
 }
+.light-gradient--reverse:before {
+  left: auto;
+  right: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(185, 71, 255, 0) 0%,
+    rgba(0, 0, 0, 1) 80%
+  );
+}
 .website-animation {
   position: absolute;
   top: 20px;
@@ -180,15 +189,37 @@ h2 {
   animation: rotation 50s ease-in-out infinite;
 }
 
-.blur-additional-webkit {
-  /* -webkit-backface-visibility: hidden;
-  -moz-backface-visibility: hidden;
-  -webkit-transform: translate3d(0, 0, 0);
-  -moz-transform: translate3d(0, 0, 0); */
-}
 .absolute-inline-center {
   left: 50%;
   transform: translate3d(-50%, 0, 0);
+}
+.portfolio-splide .portfolio-pagination {
+  left: calc(-100% - 48px);
+  right: auto;
+}
+.portfolio-splide .splide__arrows {
+  display: flex;
+  gap: 10px;
+  position: absolute;
+  bottom: 0px;
+  /* left: 50%;
+  transform: translateX(-50%); */
+}
+
+.portfolio-splide .splide__arrow {
+  position: static;
+}
+.splide__track {
+  height: 100%;
+}
+
+.bg-gradient_orange {
+  background: rgb(244, 67, 54);
+  background: linear-gradient(
+    90deg,
+    rgba(244, 67, 54, 1) 0%,
+    rgba(33, 66, 92, 1) 100%
+  );
 }
 @keyframes changeGradient {
   0% {

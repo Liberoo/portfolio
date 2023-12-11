@@ -1,10 +1,17 @@
 import { Button } from "@/components/ui/button";
+import Gradient from "./global/Gradient";
 export interface ContactProps {
   contactText: string;
   background: string;
   gradient: string;
+  gradientWidth: string;
 }
-const Contact = ({ contactText, background, gradient }: ContactProps) => {
+const Contact = ({
+  contactText,
+  background,
+  gradient,
+  gradientWidth,
+}: ContactProps) => {
   return (
     <section
       className={`my-20 py-0 relative z-10  bg-${background} text-${
@@ -13,7 +20,7 @@ const Contact = ({ contactText, background, gradient }: ContactProps) => {
     >
       <div className="container py-20 text-center relative h-full">
         <div
-          className={`w-[300px] md:w-[400px] h-[400px] rounded-full bg-gradient_${gradient} bg-gradient_blue opacity-40  blur-gradient lg:blur-gradient_desktop absolute top-0 absolute-inline-center z-[-1]`}
+          className={` md:w-[400px] h-[400px]  rounded-full  bg-gradient_blue  opacity-40  blur-gradient lg:blur-gradient_desktop absolute top-0 absolute-inline-center z-[-1]`}
         ></div>
         <p className="my-5 text-lg uppercase tracking-widest ">{contactText}</p>
         <Button
